@@ -1,12 +1,10 @@
-function [s1, s2] = mattis_bardeen(hw, Delta, T)
+function [s1, s2] = mattis_bardeen(hw, Delta, kT)
 % MATTIS_BARDEEN  sigma1/sigma_n and sigma2/sigma_n (Mattis-Bardeen)
 %   hw    : photon energy(ies) hbar*omega  (same units as Delta, kT; hw > 0)
 %   Delta : gap at the chosen temperature
 %   kT    : k_B*T (same units; kT = 0 allowed)
 %   s1,s2 : sigma1/sigma_n, sigma2/sigma_n (same size as hw)
 
-kB     = 0.08617;                  % meV/K
-kT     = kB*T;
 s1 = zeros(size(hw));
 s2 = zeros(size(hw));
 
@@ -14,7 +12,7 @@ fermi = @(x) 0.5*(1 - tanh(x/(2*kT)));          % 1/(exp(x/kT)+1), overflow-safe
 if kT > 0
     th = @(x) tanh(x/(2*kT));                   % = 1 - 2 f(x)
 else
-    th = @(x) ones(size(x));                    % T = 0 (arguments are always > 0 here)
+    th = @(x) ones(size(x));                    % T = 0 -> f(x) = 0 (arguments are always > 0 here)
 end
 
 opts = {'RelTol',1e-10,'AbsTol',1e-12};

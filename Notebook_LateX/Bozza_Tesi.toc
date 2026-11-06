@@ -1,0 +1,4 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}BCS theory and Mattis-Bardeen formula}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Numerical Integration of the Mattis-Bardeen formula}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Results with BCS theory}{3}{chapter.2}%
