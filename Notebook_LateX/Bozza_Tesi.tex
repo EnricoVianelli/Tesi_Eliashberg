@@ -172,7 +172,7 @@ And the singularities have been removed.
 
 \chapter{Results with BCS theory}
 Now that we can solve Eqs.~\ref{eq:MB-real_cond} and~\ref{eq:MB-imag_cond} let's see the results for some 
-different materials and various temperature. In particular i have tested Nb, Pb and Al.
+different materials and various temperatures. In particular i have tested Nb, Pb and Al.
 
 For different materials we need the experimental values of thecritical temperature $T_c$, under which they become superconductors, and the zero temperature value of the enrgy gap $\Delta_0$.
 Actually for $\Delta_0$ we extract the value from the BCS relation
@@ -185,7 +185,7 @@ holds, and is greater for strong-coupling materials such as Nb and Pb. In Tab.~\
 
 \begin{table}[]
 \centering
-\caption{Superconducting materials experimental parameters}
+\caption{Superconducting materials experimental parameters.}
 \begin{tabular}{@{}lll@{}}
 \toprule
 Material & $T_c$(K) & $\alpha$ \\ \midrule
@@ -213,7 +213,7 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
      \label{fig:figura_cond_comparison}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
     \begin{subfigure}[b]{0.49\textwidth}
@@ -237,7 +237,7 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
 \end{figure}
 
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
     \begin{subfigure}[b]{0.49\textwidth}
@@ -261,7 +261,7 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
 \end{figure}
 
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
     \begin{subfigure}[b]{0.49\textwidth}
@@ -284,7 +284,7 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
     \label{fig:figura_completa_Al}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
     \begin{subfigure}[b]{0.49\textwidth}
@@ -308,5 +308,30 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
 \end{figure}
 
 
-
+To evaluate the performances of the code that i've written, i compare the numerical solutions
+with some experimental datas extracted from [ref]. The results are showed in the Fig.\ref{fig:figura_completa_Nb_fit} below.
+\begin{figure}[!h]
+    \centering
+    % Sotto-figura di SINISTRA
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Immages/BCS_Nb_real_cond_diffT_conv_units_fitexp.pdf}
+        %\caption{Didascalia dell'immagine a sinistra.}
+        \label{fig:sinistra_Nb_fit}
+    \end{subfigure}
+    \hfill
+    % Sotto-figura di DESTRA
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Immages/BCS_Nb_imm_cond_diffT_conv_units_fitexp.pdf}
+        %\caption{Didascalia dell'immagine a destra.}
+        \label{fig:destra_Nb_fit}
+    \end{subfigure}
+    
+    % Didascalia e Label GENERALI di tutta la figura
+    \caption{Real (sx) and imaginary (dx) conductivity for Nb compared with experimental data.}
+    \label{fig:figura_completa_Nb_fit}
+\end{figure}
+We can see that the fit is pretty bad, expecially for lower $T$, but we espected this for Niobium because is a strong-coupling
+superconducting material while BCS is a weak-coupling theory ($\alpha = 3.65$).
 \end{document}

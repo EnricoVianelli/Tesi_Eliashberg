@@ -1,7 +1,7 @@
 % Parameters
-Tc     = 7.2;                 % K
+Tc     = 9.3;                 % K
 kB     = 0.08617;             % meV/K
-alpha = 3.95;                 % coupling 2*D0/KbTc
+alpha = 3.65;                 % coupling 2*D0/KbTc
 Delta0 = 0.5*alpha*kB*Tc;     % meV, BCS weak coupling
 
 ratio_Tc = [0.01 0.3 0.6 0.8];
@@ -33,7 +33,7 @@ for i = 1:nT
     plot(x, sigma1(i, :), 'LineWidth', 1.5);
 end
 grid on
-title(sprintf('Real part Conductivity of Pb ($T_c=%.1f~$K)',Tc ), 'Interpreter', 'latex')
+title(sprintf('Real part Conductivity of Nb ($T_c=%.1f~$K)',Tc ), 'Interpreter', 'latex')
 ylim([-0.1 2])
 xlabel('$\hbar\omega / 2\Delta(0)$', 'Interpreter', 'latex');
 ylabel('$\sigma_1/\sigma_n~(\omega)$', 'Interpreter', 'latex');
@@ -45,7 +45,7 @@ legend(arrayfun(@(r) sprintf('$T=%.1f\\,T_c$', r), ratio_Tc, 'UniformOutput', fa
     %'Interpreter', 'latex', 'FontSize', 16, 'Location', 'best')
 
 %print(, '-dpdf', '-bestfit')
-exportgraphics(gcf, 'BCS_Pb_real_cond_diffT.pdf', 'ContentType', 'vector');
+exportgraphics(gcf, 'BCS_Nb_real_cond_diffT.pdf', 'ContentType', 'vector');
 
 % Plotting imaginary part -----------------------------------
 figure
@@ -54,7 +54,7 @@ for i = 1:nT
     plot(x, sigma2(i, :), 'LineWidth', 1.5);
 end
 grid on
-title(sprintf('Imaginary part Conductivity of Pb ($T_c=%.1f~$K)',Tc ), 'Interpreter', 'latex')
+title(sprintf('Imaginary part Conductivity of Nb ($T_c=%.1f~$K)',Tc ), 'Interpreter', 'latex')
 ylim([-0.1 2])
 xlabel('$\hbar\omega / 2\Delta(0)$', 'Interpreter', 'latex');
 ylabel('$\sigma_2/\sigma_n~(\omega)$', 'Interpreter', 'latex');
@@ -66,4 +66,4 @@ legend(arrayfun(@(r) sprintf('$T=%.1f\\,T_c$', r), ratio_Tc, 'UniformOutput', fa
 %   'Interpreter', 'latex', 'FontSize', 16, 'Location', 'best')
 
 %print('BCS_Pb_imm_cond_diffT.pdf', '-dpdf', '-bestfit')
-exportgraphics(gcf, 'BCS_Pb_imm_cond_diffT.pdf', 'ContentType', 'vector')
+exportgraphics(gcf, 'BCS_Nb_imm_cond_diffT.pdf', 'ContentType', 'vector')

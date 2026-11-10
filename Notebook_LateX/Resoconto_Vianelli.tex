@@ -52,89 +52,11 @@
 
 \begin{document}
 
-
-
-\chapter*{BCS theory and Mattis-Bardeen formula}
-...BCS SHORT REVIEW....
-
-
-The Mattis-Bardeen formula (MB) describes the complex conductuvity $\sigma(\omega, T)$ of superconductors in the 
-BCS theory framework, so it is accurate for weak-coupling superconductors materials.
-The originally form was derived by Mattis and Bardeen in 1958, and also assumes the clean
-limit $l\rightarrow\infty$ and the Pippard limit $\xi \leq \lambda_L$. Then Nam showed in 1967 that
-the formula is valid also in the dirty limit $l\rightarrow 0$ and the local limit $\xi \gg \lambda_L$.
-\\
-The MB equation are given by the two integrals
-\begin{equation}
-    \begin{split}
-        \frac{\sigma_1(\omega, T)}{\sigma_n} &= \frac{2}{\hbar\omega} \int_{\Delta}^{\infty} \frac{\left[ f(E) - f(E + \hbar\omega) \right] \left[E^2 + \Delta^2 + \hbar\omega E \right]}{\sqrt{E^2 - \Delta^2} \sqrt{(E + \hbar\omega)^2 - \Delta^2}} \, dE \\
-             & + \frac{1}{\hbar\omega} \int_{\Delta -\hbar\omega}^{-\Delta} \frac{\left[ 1 - 2f(E + \hbar\omega) \right] \left[E^2 + \Delta^2 + \hbar\omega E \right]}{\sqrt{E^2 - \Delta^2} \sqrt{(E + \hbar\omega)^2 - \Delta^2}} \, dE,
-    \end{split}
-\label{eq:MB-real_cond}
-\end{equation}
-for the real part and by
-\begin{equation}
-\frac{\sigma_2(\omega, T)}{\sigma_n} = \frac{1}{\hbar\omega} \int_{\Delta-\hbar\omega, \, -\Delta}^{\Delta} \frac{\left[ 1 - 2f(E + \hbar\omega) \right] \left( E^2 + \Delta^2 + \hbar\omega E \right)}{\sqrt{\Delta^2 - E^2} \sqrt{(E + \hbar\omega)^2 - \Delta^2}} \, dE,
-\label{eq:MB-imag_cond}
-\end{equation}
-for the imagimary part, where the $\sigma_n$ is the normal state conductivity and $f(E)= \frac{1}{1 + exp(\frac{E}{TK_B})}$ is the Fermi-Dirac distribution. The lower limit in the integral of Eq.$~\ref{eq:MB-imag_cond}$ is $-\Delta$ if $\hbar \omega > 2\Delta$.
-
-
-...SOME COMMENTS ABOUT THE EXPRESSIONS ... 
-
-\section*{Numerical Integration of the Mattis-Bardeen formula}
-
-Clearly Eqs.\ref{eq:MB-imag_cond} and \ref{eq:MB-real_cond} are not analytically integrable, so we need to use numerical methods to evaluate them. 
-In this work i used the standard integrating methods in MATLAB, being careful with the singularities in the limits of integration. For the sake of simplicity of notation let's define 
-the following integrals from the MB equations:
-\begin{align}
-I_1 &= \frac{2}{\hbar\omega} \int_{\Delta}^{\infty} \frac{\left[ f(E) - f(E + \hbar\omega) \right] \left( E^2 + \Delta^2 + \hbar\omega E \right)}{\sqrt{E^2 - \Delta^2} \sqrt{(E + \hbar\omega)^2 - \Delta^2}} \, dE , \\
-I_2 &= \frac{1}{\hbar\omega} \int_{\Delta -\hbar\omega}^{-\Delta} \frac{\left[ 1 - 2f(E + \hbar\omega) \right] \left( E^2 + \Delta^2 + \hbar\omega E \right)}{\sqrt{E^2 - \Delta^2} \sqrt{(E + \hbar\omega)^2 - \Delta^2}} \, dE \quad \text{and} \\
-I_3 &= \frac{1}{\hbar\omega} \int_{\Delta - \hbar\omega, -\Delta}^{\Delta} \frac{\left[ 1 - 2f(E + \hbar\omega) \right] \left( E^2 + \Delta^2 + \hbar\omega E \right)}{\sqrt{\Delta^2 - E^2} \sqrt{\Delta^2 - (E + \hbar\omega)^2}} \, dE.
-\end{align}
-The problems are in the square root terms in the denominators, which lead to singularities. 
-To overcome this issue, i used a change of variable in the integrals that cancels out the singular terms in the denominator.
-
-
-For the integral $I_1$ we have a problem in the lower limit $E= \Delta$, but using 
-\[
-    E = \Delta~cosh(u) \quad \leftrightarrow \quad u = cosh^{-1}(\frac{E}{\Delta}),
-\]
-so that
-\[
-    du = \frac{dE}{\sqrt{E^2 - \Delta^2}} \quad \Rightarrow \quad dE = \sqrt{E^2 - \Delta^2}du
-\]
-and the integral becames
-\begin{equation}
-    I_1 = \frac{2}{\hbar\omega} \int_{0}^{\infty} \frac{\left[ f(\Delta cosh(u)) - f(\Delta~cosh(u) + \hbar\omega) \right] \left[ \Delta^2(cosh^2(u) + 1) + \hbar\omega \Delta~cosh(u) \right]}{ \sqrt{(\Delta~cosh(u) + \hbar\omega)^2 - \Delta^2}} \, du .
-\end{equation}
-Now we can integrate numerically with the standard methods in MATLAB sush as .
-
-
-The integrals $I_2$ and $I_3$ have singularities both in the lower and upper limits, we can write them as
-\begin{equation}
-    \frac{1}{\hbar\omega} \int_{a}^{b} \frac{\left[ 1 - 2f(E + \hbar\omega) \right] \left( E^2 + \Delta^2 + \hbar\omega E \right)}{\sqrt{b^2 - E^2} \sqrt{(E^2 - a^2}} \, dE.
-    \label{eq: change var integral}
-\end{equation}
-Then with the change of variables
-\[
-    E = \frac{b-a}{2}~sin(t) + \frac{b+a}{2} \quad \leftrightarrow \quad t = sin^{-1}\left(\frac{2E - (b+a)}{b-a}\right),
-\]
-that leads to 
-\[
-    dt = \frac{dE}{\sqrt{b - E}\sqrt{E - a}} \Rightarrow dE = \sqrt{(b - E)(E - a)} dt,
-\]
-we can rewrite Eq.~\ref{eq: change var integral} as
-\begin{equation}
-    \frac{1}{\hbar\omega} \int_{-\pi/2}^{\pi/2} \frac{\left[ 1 - 2f\left(\frac{b-a}{2}~sin(t) + \frac{b+a}{2} + \hbar\omega\right) \right] \left[ \left(\frac{b-a}{2}~sin(t) + \frac{b+a}{2}\right)^2 + \Delta^2 + \hbar\omega \left(\frac{b-a}{2}~sin(t) + \frac{b+a}{2}\right) \right]}{\sqrt{(b + E)(E + a)}} \, dt.
-\end{equation}
-And the singularities have been removed.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter*{Results with BCS theory}
 Now that we can solve Eqs.~\ref{eq:MB-real_cond} and~\ref{eq:MB-imag_cond} let's see the results for some 
-different materials and various temperature. In particular i have tested Nb, Pb and Al.
+different materials and various temperatures. In particular i have tested Nb, Pb and Al.
 
 For different materials we need the experimental values of thecritical temperature $T_c$, under which they become superconductors, and the zero temperature value of the enrgy gap $\Delta_0$.
 Actually for $\Delta_0$ we extract the value from the BCS relation
@@ -147,7 +69,7 @@ holds, and is greater for strong-coupling materials such as Nb and Pb. In Tab.~\
 
 \begin{table}[]
 \centering
-\caption{Superconducting materials experimental parameters}
+\caption{Superconducting materials experimental parameters.}
 \begin{tabular}{@{}lll@{}}
 \toprule
 Material & $T_c$(K) & $\alpha$ \\ \midrule
@@ -164,8 +86,8 @@ Since $\Delta = \Delta (T)$ is a function of the temperature and is zero at $T \
 \end{equation}
 
 In the following we see some test for Nb, Pb and Al at different temperatures. In Fig.~\ref{fig:figura_cond_comparison} i compared the real and imaginary conductivity for 
-Nb, Pb and Al at $T=0.8T_c$. In Figs.\ref{fig:figura_completa_Al}, \ref{fig:figura_completa_Nb} and ~\ref{fig:figura_completa_Pb} we see conductivity for different temperatures
-in the various materials. The last Fig.~\ref{fig:figura_completa_Nb_norm} i have plotted the conductivity of
+Nb, Pb and Al at $T=0.8T_c$. In Fig.\ref{fig:figura_completa_Nb} we see conductivity for different temperatures
+in Nb. In the last Fig.~\ref{fig:figura_completa_Nb_norm} i have plotted the conductivity of
 Niobium with the energy scale normalized by $2\Delta_0$ to check if the real part of $\sigma / \sigma_n$ correctly 
 drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the gap moves to lower energies/frequencies. 
 \begin{figure}
@@ -175,7 +97,7 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
      \label{fig:figura_cond_comparison}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
     \begin{subfigure}[b]{0.49\textwidth}
@@ -198,55 +120,7 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
     \label{fig:figura_completa_Nb}
 \end{figure}
 
-
-\begin{figure}[htbp]
-    \centering
-    % Sotto-figura di SINISTRA
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../Immages/BCS_Pb_real_cond_diffT_conv_units.pdf}
-        %\caption{Didascalia dell'immagine a sinistra.}
-        \label{fig:sinistra_Pb}
-    \end{subfigure}
-   \hfill
-    % Sotto-figura di DESTRA
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../Immages/BCS_Pb_imm_cond_diffT_conv_units.pdf}
-        %\caption{Didascalia dell'immagine a destra.}
-        \label{fig:destra_Pb}
-    \end{subfigure}
-    
-    % Didascalia e Label GENERALI di tutta la figura
-    \caption{Real (sx) and imaginary (dx) conductivity for Pb.}
-    \label{fig:figura_completa_Pb}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    % Sotto-figura di SINISTRA
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../Immages/BCS_Al_real_cond_diffT_conv_units.pdf}
-        %\caption{Didascalia dell'immagine a sinistra.}
-        \label{fig:sinistra_Al}
-    \end{subfigure}
-    \hfill
-    % Sotto-figura di DESTRA
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../Immages/BCS_Al_imm_cond_diffT_conv_units.pdf}
-        %\caption{Didascalia dell'immagine a destra.}
-        \label{fig:destra_Al}
-    \end{subfigure}
-    
-    % Didascalia e Label GENERALI di tutta la figura
-    \caption{Real (sx) and imaginary (dx) conductivity for Al.}
-    \label{fig:figura_completa_Al}
-\end{figure}
-
-\begin{figure}[htbp]
+\begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
     \begin{subfigure}[b]{0.49\textwidth}
@@ -269,5 +143,32 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
     \label{fig:figura_completa_Nb_norm}
 \end{figure}
 
+\section*{Fit with experimental data}
 
+To evaluate the performances of the code that i've written, i compare the numerical solutions
+with some experimental datas extracted from [ref]. The results are showed in the Fig.\ref{fig:figura_completa_Nb_fit} below.
+\begin{figure}[!h]
+    \centering
+    % Sotto-figura di SINISTRA
+    \begin{subfigure}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Immages/BCS_Nb_real_cond_diffT_conv_units_fitexp.pdf}
+        %\caption{Didascalia dell'immagine a sinistra.}
+        \label{fig:sinistra_Nb_fit}
+    \end{subfigure}
+    
+    % Sotto-figura di DESTRA
+    \begin{subfigure}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Immages/BCS_Nb_imm_cond_diffT_conv_units_fitexp.pdf}
+        %\caption{Didascalia dell'immagine a destra.}
+        \label{fig:destra_Nb_fit}
+    \end{subfigure}
+    
+    % Didascalia e Label GENERALI di tutta la figura
+    \caption{Real (sx) and imaginary (dx) conductivity for Nb compared with experimental data.}
+    \label{fig:figura_completa_Nb_fit}
+\end{figure}
+We can see that the fit is pretty bad, expecially for lower $T$, but we espected this for Niobium because is a strong-coupling
+superconducting material while BCS is a weak-coupling theory ($\alpha = 3.65$).
 \end{document}

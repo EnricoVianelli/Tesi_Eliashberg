@@ -1,22 +1,25 @@
 # Fdb version 4
-["biber Bozza_Tesi"] 1793979214.36699 "Bozza_Tesi.bcf" "Bozza_Tesi.bbl" "Bozza_Tesi" 1793979616.06487 0
-  "Bozza_Tesi.bcf" 1793979615.82657 107353 5126ec284b7cb1b18cd2d41da2972233 "pdflatex"
+["biber Bozza_Tesi"] 0 "Bozza_Tesi.bcf" "Bozza_Tesi.bbl" "Bozza_Tesi" 1794304650.49278 -1
+  "Bozza_Tesi.bcf" 1794304650.2451 107353 5126ec284b7cb1b18cd2d41da2972233 "pdflatex"
+  "bibliography.bib" 1793883180.5699 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "Bozza_Tesi.bbl"
   "Bozza_Tesi.blg"
   (rewritten before read)
-["pdflatex"] 1793979613.21195 "/home/vianelli/Desktop/TESI/Notebook_LateX/Bozza_Tesi.tex" "Bozza_Tesi.pdf" "Bozza_Tesi" 1793979616.06568 0
+["pdflatex"] 1794304647.60107 "/home/vianelli/Desktop/TESI/Notebook_LateX/Bozza_Tesi.tex" "Bozza_Tesi.pdf" "Bozza_Tesi" 1794304650.49373 0
   "../Immages/BCS_Al_imm_cond_diffT_conv_units.pdf" 1793869399.03764 36559 6657664a082afa577d59eb683375396d ""
   "../Immages/BCS_Al_real_cond_diffT_conv_units.pdf" 1793869397.03063 37924 265cb916db9400ef51bb45b20165572b ""
   "../Immages/BCS_Comparison_0.8Tc.pdf" 1793962686.51885 41152 4cec46981046ed8f782600d79e6a0def ""
-  "../Immages/BCS_Nb_imm_cond_diffT.pdf" 1793811737.75877 34623 0b3091b34891f8d269cae9c49e60e76c ""
+  "../Immages/BCS_Nb_imm_cond_diffT.pdf" 1794304082.62819 35645 ef3abed568b14601b1db806776bff2ec ""
   "../Immages/BCS_Nb_imm_cond_diffT_conv_units.pdf" 1793962866.89304 38495 3992118d71fcc1557304adcd08318aad ""
-  "../Immages/BCS_Nb_real_cond_diffT.pdf" 1793811736.29474 36376 d5d71c6104f40602ee7fa1cbd2e0327b ""
+  "../Immages/BCS_Nb_imm_cond_diffT_conv_units_fitexp.pdf" 1794300895.71433 32531 ac8e9c7c85acfeb468dd5ddd6293d3c8 ""
+  "../Immages/BCS_Nb_real_cond_diffT.pdf" 1794304080.34616 37558 eedd6988fac211f60fce709553e391f8 ""
   "../Immages/BCS_Nb_real_cond_diffT_conv_units.pdf" 1793962863.88404 40025 2dd2ce331558db85d4cb9e7fc7589ba0 ""
+  "../Immages/BCS_Nb_real_cond_diffT_conv_units_fitexp.pdf" 1794300894.04732 33021 23dc2e7b5fea0e073ff64116e8c39833 ""
   "../Immages/BCS_Pb_imm_cond_diffT_conv_units.pdf" 1793962784.38896 37768 fffb310fb845f4ccce2308f2e012c318 ""
   "../Immages/BCS_Pb_real_cond_diffT_conv_units.pdf" 1793962781.40496 38954 c60c685ec17e4c8965872dec5df0b5d0 ""
   "/etc/texmf/web2c/texmf.cnf" 1776337657.14639 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/vianelli/Desktop/TESI/Notebook_LateX/Bozza_Tesi.tex" 1793979612.81394 13363 6231655dbea766ca5006df9e9b3ad109 ""
+  "/home/vianelli/Desktop/TESI/Notebook_LateX/Bozza_Tesi.tex" 1794304644.24428 14632 84647d4c1e4ca59f66f6219c7bf899a9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1136768653 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -159,12 +162,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1776337674.29738 5472523 3385632d03104648b518c8e4afd7264e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1776337765 8214707 bf4a38c5e92493e5822f21a1f35325fc ""
-  "Bozza_Tesi.aux" 1793979615.81857 4794 5a463097b94428ecd047300b19859e4c "pdflatex"
+  "Bozza_Tesi.aux" 1794304650.2381 5597 c49ea49434bed559232badf00d9c8a63 "pdflatex"
   "Bozza_Tesi.bbl" 1793979216.13665 466 ee04f40f768daeed26442158e95aba61 "biber Bozza_Tesi"
-  "Bozza_Tesi.out" 1793979615.82357 731 07bb18b487284d6df97ae7116cadf2ff "pdflatex"
-  "Bozza_Tesi.run.xml" 1793979615.82857 2349 3d0972234ff0b953fb70094bb05e48f1 "pdflatex"
-  "Bozza_Tesi.tex" 1793979612.81394 13363 6231655dbea766ca5006df9e9b3ad109 ""
-  "Bozza_Tesi.toc" 1793979615.82857 313 91542720926ec743b77b1d3df8c4efc3 "pdflatex"
+  "Bozza_Tesi.out" 1794304650.2421 731 07bb18b487284d6df97ae7116cadf2ff "pdflatex"
+  "Bozza_Tesi.run.xml" 1794304650.24765 2349 3d0972234ff0b953fb70094bb05e48f1 "pdflatex"
+  "Bozza_Tesi.tex" 1794304644.24428 14632 84647d4c1e4ca59f66f6219c7bf899a9 ""
+  "Bozza_Tesi.toc" 1794304650.24765 313 91542720926ec743b77b1d3df8c4efc3 "pdflatex"
   "tesiSCIENZE_TECNOLOGIE.jpg" 1793882944.06538 151126 6aaf40e13c5552fffc380ab31d9b98c8 ""
   (generated)
   "Bozza_Tesi.aux"

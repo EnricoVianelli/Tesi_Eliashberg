@@ -1,6 +1,6 @@
 function [s1, s2] = mattis_bardeen(hw, Delta, kT)
-% MATTIS_BARDEEN  sigma1/sigma_n and sigma2/sigma_n (Mattis-Bardeen)
-%   hw    : photon energy(ies) hbar*omega  (same units as Delta, kT; hw > 0)
+% MATTIS_BARDEEN  sigma1/sigma_n and sigma2/sigma_n 
+%   hw    : photon energy(ies) \hbar*\omega  (same units as Delta, kT; hw > 0)
 %   Delta : gap at the chosen temperature
 %   kT    : k_B*T (same units; kT = 0 allowed)
 %   s1,s2 : sigma1/sigma_n, sigma2/sigma_n (same size as hw)
@@ -21,7 +21,7 @@ for k = 1:numel(hw)
     w = hw(k);
     N = @(E) E.^2 + Delta^2 + w*E;
 
-    % ---------- sigma1, term 1: thermally excited quasiparticles ----------
+    % ---------- sigma1, term 1: thermally excited quasi-particles ----------
     I1 = 0;
     if kT > 0
         umax = acosh(1 + 40*kT/Delta);          % E = Delta*cosh(u), up to Delta+40kT
