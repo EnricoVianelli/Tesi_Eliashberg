@@ -199,6 +199,7 @@ Al       & 1.2      & 3.53     \\ \bottomrule
 Since $\Delta = \Delta (T)$ is a function of the temperature and is zero at $T \geq T_c$ i have extrapolate it in the BCS approximation as
 \begin{equation}
     \Delta = \Delta_0~\tanh \left(e^{\gamma}\sqrt{\frac{8}{7\xi (3)}}~\sqrt{\frac{T_c}{T} - 1} \right) \simeq \Delta_0~\tanh \left(1.74~\sqrt{\frac{T_c}{T} - 1}\right).
+    \label{eq:BCS_gap_approx}
 \end{equation}
 
 In the following we see some test for Nb, Pb and Al at different temperatures. In Fig.~\ref{fig:figura_cond_comparison} i compared the real and imaginary conductivity for 
@@ -309,7 +310,8 @@ drops down at $\hbar \omega = 2\Delta_0$ when $T=0$, and if increasing $T$ the g
 
 
 To evaluate the performances of the code that i've written, i compare the numerical solutions
-with some experimental datas extracted from [ref]. The results are showed in the Fig.\ref{fig:figura_completa_Nb_fit} below.
+with experimental data of Nb. To extract the data points from the figure i have used the online tool \texttt{WebPlotDigitizer}.
+The results are showed in the Fig.\ref{fig:figura_completa_Nb_fit} below with $T_c=8.3$~K and $\alpha=4.1$.
 \begin{figure}[!h]
     \centering
     % Sotto-figura di SINISTRA
@@ -330,8 +332,22 @@ with some experimental datas extracted from [ref]. The results are showed in the
     
     % Didascalia e Label GENERALI di tutta la figura
     \caption{Real (sx) and imaginary (dx) conductivity for Nb compared with experimental data.}
-    \label{fig:figura_completa_Nb_fit}
+\label{fig:figura_completa_Nb_fit}
 \end{figure}
-We can see that the fit is pretty bad, expecially for lower $T$, but we espected this for Niobium because is a strong-coupling
-superconducting material while BCS is a weak-coupling theory ($\alpha = 3.65$).
+We can see that the BCS understimates the value of the real conductivity $\sigma_1$, expecially for lower $T$, but we espected this for Niobium because is a strong-coupling
+superconducting material while BCS is a weak-coupling theory ($\alpha = 3.65$). 
+
+Another comparison that needs to be done is the one between the values of $\Delta$ at different temperatures extracted 
+by the experimental data of conductivity, and the BCS mean field approximation used for the gap function in Eq.~\ref{eq:BCS_gap_approx}. The value of $2\Delta(T)$
+is given by the frequency that corresponds to the minimum of the $\sigma_1$ at given temperature.
+This is showed in Fig.~\ref{fig:Gap_comparison}. Furthermore in Fig.~\ref{fig:Gap_comparison} i have plotted the frequency at the minimum of $\sigma_1$ obtained
+from the numerical solution of Eq.\ref{eq:MB-real_cond}, as a counter check for the code.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Immages/BCS_Gap_MB_vs_T_fitexp.pdf}
+    \caption{Comparison between BCS approximation of $\Delta(T)$ and the values of $\Delta$ extracted by the data. Errorbars are $2~\text{cm}^{-1}$ from the paper [ref].}
+\label{fig:Gap_comparison}
+\end{figure}
+
 \end{document}
