@@ -92,9 +92,11 @@
 \mainmatter % end of roman page numbering
 
 
-\chapter{BCS theory and Mattis-Bardeen formula}
+\chapter{BCS theory}
+
 ...BCS SHORT REVIEW
 
+\section{Mattis Bardeen formula}
 
 The Mattis-Bardeen formula (MB) describes the complex conductuvity $\sigma(\omega, T)$ of superconductors in the 
 BCS theory framework, so it is accurate for weak-coupling superconductors materials.
@@ -102,7 +104,7 @@ The originally form was derived by Mattis and Bardeen in 1958, and also assumes 
 limit $l\rightarrow\infty$ and the Pippard limit $\xi \leq \lambda_L$. Then Nam showed in 1967 that
 the formula is valid also in the dirty limit $l\rightarrow 0$ and the local limit $\xi \gg \lambda_L$.
 \\
-The MB equation are given by the two integrals
+The MB equations are given by the two integrals
 \begin{equation}
     \begin{split}
         \frac{\sigma_1(\omega, T)}{\sigma_n} &= \frac{2}{\hbar\omega} \int_{\Delta}^{\infty} \frac{\left[ f(E) - f(E + \hbar\omega) \right] \left[E^2 + \Delta^2 + \hbar\omega E \right]}{\sqrt{E^2 - \Delta^2} \sqrt{(E + \hbar\omega)^2 - \Delta^2}} \, dE \\
@@ -116,11 +118,16 @@ for the real part and by
 \label{eq:MB-imag_cond}
 \end{equation}
 for the imagimary part, where the $\sigma_n$ is the normal state conductivity and $f(E)= \frac{1}{1 + exp(\frac{E}{TK_B})}$ is the Fermi-Dirac distribution. The lower limit in the integral of Eq.$~\ref{eq:MB-imag_cond}$ is $-\Delta$ if $\hbar \omega > 2\Delta$.
+The expression for the real part of the conductivity
+describes the response of the normal carriers, that is, the
+dissipative part. The first term of Eq.~\ref{eq:MB-real_cond} represents the effects of
+thermally excited quasiparticles, which vanishes when $T=0$.
+The second term mainly accounts for the contribution of
+photon-excited quasiparticles; it requires the breaking
+of a Cooper pair, so it is basically zero for $\hbar \omega < 2\Delta (T)$. How-
+ever, there is a small contribution possible of quasiparticles thermally excited across the gap under the critical temperature.
 
-
-...SOME COMMENTS ABOUT THE EXPRESSIONS ... 
-
-\section{Numerical Integration of the Mattis-Bardeen formula}
+\subsection{Numerical Integration of the Mattis-Bardeen formula}
 
 Clearly Eqs.\ref{eq:MB-imag_cond} and \ref{eq:MB-real_cond} are not analytically integrable, so we need to use numerical methods to evaluate them. 
 In this work i used the standard integrating methods in MATLAB, being careful with the singularities in the limits of integration. For the sake of simplicity of notation let's define 
@@ -167,6 +174,15 @@ we can rewrite Eq.~\ref{eq: change var integral} as
     \frac{1}{\hbar\omega} \int_{-\pi/2}^{\pi/2} \frac{\left[ 1 - 2f\left(\frac{b-a}{2}~sin(t) + \frac{b+a}{2} + \hbar\omega\right) \right] \left[ \left(\frac{b-a}{2}~sin(t) + \frac{b+a}{2}\right)^2 + \Delta^2 + \hbar\omega \left(\frac{b-a}{2}~sin(t) + \frac{b+a}{2}\right) \right]}{\sqrt{(b + E)(E + a)}} \, dt.
 \end{equation}
 And the singularities have been removed.
+
+\section{Zimmermann formula for finite scattering rate}
+
+The Zimmerman forrmula is a generalization of the Mattis Bardeen equations for finte scattering time $\tau$, this is 
+parametrized by the scattering rate $\gamma = 1/\tau$. This parameter depends both on the material and the temperature.
+While the Eqs.~\ref{eq:MB-real_cond} and~\ref{eq:MB-imag_cond} are just valid for the two limit cases $\tau \rightarrow 0$ and $\tau \rightarrow \infty$ (dirty and clean limit respectively),
+the following equations are valid for arbitrary elastic scattering rate of the carriers in the material.
+
+\subsection{Numerical integration of Zimmermann formula}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -341,7 +357,7 @@ Another comparison that needs to be done is the one between the values of $\Delt
 by the experimental data of conductivity, and the BCS mean field approximation used for the gap function in Eq.~\ref{eq:BCS_gap_approx}. The value of $2\Delta(T)$
 is given by the frequency that corresponds to the minimum of the $\sigma_1$ at given temperature.
 This is showed in Fig.~\ref{fig:Gap_comparison}. Furthermore in Fig.~\ref{fig:Gap_comparison} i have plotted the frequency at the minimum of $\sigma_1$ obtained
-from the numerical solution of Eq.\ref{eq:MB-real_cond}, as a counter check for the code.
+from the numerical solution of Eq.\ref{eq:MB-real_cond}, as a double check for the code.
 
 \begin{figure}[!h]
     \centering

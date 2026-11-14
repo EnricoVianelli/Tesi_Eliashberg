@@ -110,7 +110,7 @@ for i = 1:numel(temps)
     [s_min(i), k] = min(sg);         % min value and index
     nu_min(i) = nu(k);               % freq of the min
 
-    % parabolic interpolation to find better minimum
+    % parabolic interpolation to find better minimum (else keep previus one)
     if k > 1 && k < numel(nu)
         p = polyfit(nu(k-1:k+1), sg(k-1:k+1), 2);
         v = -p(2)/(2*p(1));
@@ -145,3 +145,4 @@ ylabel('2 \Delta(T) (cm^{-1})')
 set(gca, 'FontSize', 18)
 legend('Interpreter', 'latex', 'FontSize', 18, 'Location', 'best')
 exportgraphics(gcf, 'BCS_Gap_MB_vs_T_fitexp.pdf', 'ContentType', 'vector');
+
